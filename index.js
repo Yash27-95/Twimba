@@ -1,4 +1,3 @@
-// import { tweetsData } from './data.js'
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
 const tweetsDataFromLocalStorage = JSON.parse( localStorage.getItem("tweetsData") )
@@ -17,7 +16,6 @@ document.addEventListener('click', function(e){
         handleTweetBtnClick()
     }
     else if(e.target.dataset.btn){
-        e.preventDefault()
         handleCommentClick(e.target.dataset.btn)
     }
     else if(e.target.dataset.deleteBtn){
