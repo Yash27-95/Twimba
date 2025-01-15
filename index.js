@@ -50,7 +50,7 @@ function handleRetweetClick(tweetId){
         targetTweetObj.retweets++
     }
     targetTweetObj.isRetweeted = !targetTweetObj.isRetweeted
-    render() 
+    render(tweetsData) 
 }
 
 function handleReplyClick(replyId){
@@ -72,7 +72,7 @@ function handleTweetBtnClick(){
             isRetweeted: false,
             uuid: uuidv4()
         })
-    render()
+    render(tweetsData)
     tweetInput.value = ''
     }
 
@@ -90,7 +90,7 @@ function handleCommentClick(tweetId){
             return true
         }
     })
-    render()
+    render(tweetsData)
     handleReplyClick(tweetId)
     commentInput = "" 
 }
@@ -99,15 +99,14 @@ function handleDeleteTweet(tweetId){
     const tweetsDataRemain = tweetsData.filter(function(tweet){
         return tweet.uuid !== tweetId
     })
-    console.log(tweetsDataRemain)
-    render()
+    render(tweetsDataRemain)
 }
 
-function getFeedHtml(){
+function getFeedHtml(tweets){
 
     let feedHtml = ``
 
-    tweetsData.forEach(function(tweet){
+    tweets.forEach(function(tweet){
     
         let likeIconClass = ''
         
@@ -192,9 +191,9 @@ function getFeedHtml(){
    return feedHtml 
 }
 
-function render(){
-    document.getElementById('feed').innerHTML = getFeedHtml()
+function render(data){
+    document.getElementById('feed').innerHTML = getFeedHtml(data)
 }
 
-render()
+render(tweetsData)
 
