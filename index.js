@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
-import { tweetsData } from './data';
+import { tweetsData } from './data.js';
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.like){
@@ -97,10 +97,9 @@ function handleCommentClick(tweetId){
 
 function handleDeleteTweet(tweetId){
     tweetsData.filter(function(tweet){
-        if(tweet.uuid !== tweetId){
-            return true
-        }
+        return tweet.uuid !== tweetId
     })
+    console.log(tweetsData)
     render()
 }
 
