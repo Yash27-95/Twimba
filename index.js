@@ -96,10 +96,10 @@ function handleCommentClick(tweetId){
 }
 
 function handleDeleteTweet(tweetId){
-    const tweetsDataRemain = tweetsData.filter(function(tweet){
+    tweetsData.filter(function(tweet){
         return tweet.uuid !== tweetId
     })
-    render(tweetsDataRemain)
+    render(tweetsData)
 }
 
 function getFeedHtml(tweets){
