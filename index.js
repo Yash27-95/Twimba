@@ -96,21 +96,19 @@ function handleCommentClick(tweetId){
 }
 
 function handleDeleteTweet(tweetId){
-    const tuiid=""
-    tweetsData.filter(function(tweet){
-        tuiid = tweet.uuid
-        return tweet.uuid != tweetId
+    const tweetsDataRemain = tweetsData.filter(function(tweet){
+        return tweet.uuid !== tweetId
     })
-    console.log(tweetId)
-    console.log(tuiid)
-    console.log(tweetsData)
-    render()
+    console.log(tweetsDataRemain)
+    // render()
 }
 
 function getFeedHtml(){
+
     let feedHtml = ``
+
     tweetsData.forEach(function(tweet){
-        
+    
         let likeIconClass = ''
         
         if (tweet.isLiked){
@@ -146,7 +144,6 @@ function getFeedHtml(){
             </div>
             `
         }
-        
           
         feedHtml += `
 <div class="tweet">
