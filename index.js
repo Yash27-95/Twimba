@@ -96,9 +96,13 @@ function handleCommentClick(tweetId){
 }
 
 function handleDeleteTweet(tweetId){
+    const tuiid=""
     tweetsData.filter(function(tweet){
-        return tweet.uuid !== tweetId
+        tuiid = tweet.uuid
+        return tweet.uuid != tweetId
     })
+    console.log(tweetId)
+    console.log(tuiid)
     console.log(tweetsData)
     render()
 }
